@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Cyber Threat Detection Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+</head>
+
+<body>
+
+
+<!-- Loading Overlay -->
+
+<div id="loadingScreen">
+
+    <div class="loader"></div>
+
+    <h2>
+
+        Loading Dashboard...
+
+    </h2>
+
+</div>
+
+
+<div class="container">
+
+<div class="top-header">
+
+    <h1 class="main-title">
+        🛡 AI Cyber Threat Detection Platform
+    </h1>
+
+    <div class="header-actions">
+
+        <button id="themeButton" onclick="toggleTheme()">
+            🌙 Dark Mode
+        </button>
+
+        <button id="logoutButton" onclick="logout()">
+            🚪 Logout
+        </button>
+
+      
+        <div id="liveClock" class="live-clock"></div>
+
+    </div>
+
+</div>
+
+<div class="welcome-box">
+
+    Welcome to the AI Cyber Threat Detection Platform
+
+    <br>
+
+    Real-Time Log Analysis |
+    Threat Intelligence |
+    AI-Based Security Monitoring
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>🤖 AI Dashboard Overview</h2>
+
+    <div id="aiOverview">
+        System waiting for log analysis...
+    </div>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>📊 Threat Analysis Statistics</h2>
+
+    <div class="news-stats">
+
+        <div class="news-stat-card">
+            <h3>Analysis Count</h3>
+            <h2 id="analysisCount">0</h2>
+        </div>
+
+        <div class="news-stat-card">
+            <h3>Highest Threat</h3>
+            <h2 id="highestThreatLevel">LOW</h2>
+        </div>
+
+        <div class="news-stat-card">
+            <h3>Average Security</h3>
+            <h2 id="averageSecurity">100%</h2>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="executiveDashboard">
+
+Loading Executive Summary...
+
+</div>
+
+
+    <!-- Dashboard Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Threats</h2>
+            <h1 id="total">0</h1>
+        </div>
+
+        <div class="card">
+            <h2>Critical</h2>
+            <h1 id="critical">0</h1>
+        </div>
+
+        <div class="card">
+            <h2>High</h2>
+            <h1 id="high">0</h1>
+        </div>
+
+        <div class="card">
+            <h2>Medium</h2>
+            <h1 id="medium">0</h1>
+        </div>
+
+        <div class="card">
+            <h2>Low</h2>
+            <h1 id="low">0</h1>
+        </div>
+
+    </div>
+
+
+   
+
+<h2>📊 Security Overview</h2>
+
+<div class="cards">
+
+    <div class="card">
+
+        <h3>Security Score</h3>
+
+        <h1 id="securityScore">100%</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Blocked IPs</h3>
+
+        <h1 id="blockedIPs">0</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Scanned Websites</h3>
+
+        <h1 id="scannedSites">0</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h3>AI Confidence</h3>
+
+        <h1>98%</h1>
+
+    </div>
+
+</div>
+
+
+<h2>🟢 System Status</h2>
+
+<div class="status-panel">
+
+    <div class="status-item">
+
+        <span>Backend Server</span>
+
+        <span id="backendStatus" class="status-online">
+
+            🟢 Online
+
+        </span>
+
+    </div>
+
+    <div class="status-item">
+
+        <span>AI Engine</span>
+
+        <span id="aiStatus" class="status-online">
+
+            🟢 Running
+
+        </span>
+
+    </div>
+
+    <div class="status-item">
+
+        <span>Threat Feed</span>
+
+        <span id="feedStatus" class="status-online">
+
+            🟢 Connected
+
+        </span>
+
+    </div>
+
+    <div class="status-item">
+
+        <span>Database</span>
+
+        <span id="databaseStatus" class="status-online">
+
+            🟢 Connected
+
+        </span>
+
+    </div>
+
+    <div class="status-item">
+
+        <span>VirusTotal API</span>
+
+        <span id="virusStatus" class="status-online">
+
+            🟢 Active
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<h2>🛡 Security Health Dashboard</h2>
+
+<div class="health-card">
+
+    <h3>Overall Security Score</h3>
+
+    <div class="progress">
+
+        <div
+        id="securityProgress"
+        class="progress-bar">
+
+        100%
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <h3>
+
+        Threat Risk Level
+
+    </h3>
+
+    <h2 id="riskLevel">
+
+        🟢 LOW
+
+    </h2>
+
+    <br>
+
+    <h3>
+
+        AI Confidence
+
+    </h3>
+
+    <div class="progress">
+
+        <div
+        id="aiProgress"
+        class="progress-bar ai-bar">
+
+        98%
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<h2>📈 Threat Statistics</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Most Attacked IP</h3>
+        <h1 id="mostIP">-</h1>
+    </div>
+
+    <div class="card">
+        <h3>Total Failed Logins</h3>
+        <h1 id="failedLogins">0</h1>
+    </div>
+
+    <div class="card">
+        <h3>Highest Threat</h3>
+        <h1 id="highestThreat">None</h1>
+    </div>
+
+    <div class="card">
+        <h3>Last Scan</h3>
+        <h1 id="lastScan">--</h1>
+    </div>
+
+</div>
+
+
+
+<h2>📈 Threat Trend Analysis</h2>
+
+<div class="news-stats">
+
+    <div class="news-stat-card">
+
+        <h3>Today's Threats</h3>
+
+        <h2 id="todayThreats">0</h2>
+
+    </div>
+
+    <div class="news-stat-card">
+
+        <h3>Weekly Average</h3>
+
+        <h2 id="weeklyAverage">0</h2>
+
+    </div>
+
+    <div class="news-stat-card">
+
+        <h3>Peak Day</h3>
+
+        <h2 id="peakDay">-</h2>
+
+    </div>
+
+</div>
+
+<div class="chart-container">
+
+    <canvas id="trendChart"></canvas>
+
+    <div id="trendDetails" class="dashboard-card">
+
+    <h3>Threat Details</h3>
+
+    <p>Select a point on the graph to view details.</p>
+
+</div>
+
+</div>
+
+
+
+<!-- Upload -->
+
+  <input type="file" id="logFile">
+
+<br><br>
+
+<button
+id="uploadButton"
+onclick="readFile()">
+
+Upload Log File
+
+</button>
+
+<br><br>
+
+<div
+id="loadingText"
+style="display:none;
+font-size:18px;
+font-weight:bold;
+color:#1565C0;">
+
+🔄 AI Engine Analyzing Log File...
+
+</div>
+
+<div class="progress-container">
+
+<div
+id="analysisProgress"
+class="analysis-progress">
+
+</div>
+
+</div>
+
+<button onclick="resetDashboard()">
+    🔄 Reset Dashboard
+</button>
+
+    <h2>📈 Weekly Threat Analytics</h2>
+
+<div class="chart-container">
+
+    <canvas id="weeklyChart"></canvas>
+
+</div>
+
+
+<h2>📊 Monthly Threat Comparison</h2>
+
+<div class="chart-container">
+
+    <canvas id="monthlyChart"></canvas>
+
+    <div id="monthlyInsight">
+
+AI is analyzing monthly trends...
+
+</div>
+
+</div>
+
+<h2>🤖 AI Threat Prediction</h2>
+
+<div id="predictionBox">
+
+Loading AI Prediction...
+
+</div>
+
+
+    <!-- Log File -->
+
+    <h2>Log File Contents</h2>
+
+    <pre id="logContent">
+No file uploaded.
+    </pre>
+
+    <br>
+
+    <!-- Backend -->
+
+    <button onclick="checkBackend()">
+        Check Backend
+    </button>
+
+    <h2 id="result">
+        Waiting...
+    </h2>
+
+    <hr>
+
+    <!-- Charts -->
+
+    <h2>Threat Charts</h2>
+
+    <div class="chart-container">
+
+        <canvas id="pieChart"></canvas>
+
+    </div>
+
+    <br>
+
+    <div class="chart-container">
+
+        <canvas id="barChart"></canvas>
+
+    </div>
+
+    <hr>
+
+    <!-- Threat Table -->
+
+    <h2>Recent Threats</h2>
+
+    <input
+type="text"
+id="searchIP"
+placeholder="Search IP Address..."
+onkeyup="searchThreat()">
+
+<select
+id="severityFilter"
+onchange="filterThreats()">
+
+<option>All</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+<option>Critical</option>
+
+</select>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+<th>IP Address</th>
+
+<th>Threat</th>
+
+<th>Severity</th>
+
+<th>IP Reputation</th>
+
+</tr>
+
+        </thead>
+
+        <tbody id="threatTable">
+
+            <tr>
+
+                <td colspan="3">
+
+                    No Threats Detected
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <hr>
+
+    <!-- AI Analysis -->
+
+
+<h2>🚨 Threat Timeline</h2>
+
+<div id="threatTimeline"
+style="
+background:#1e1e1e;
+color:white;
+padding:15px;
+border-radius:10px;
+min-height:120px;
+overflow-y:auto;
+">
+
+No activities yet.
+
+</div>
+
+<div id="timeline">
+
+No activities yet.
+
+</div>
+
+    <h2>🤖 AI Threat Analysis</h2>
+
+<div id="aiResult">
+    No AI analysis yet.
+</div>
+
+<hr>
+
+<h2>🧠 AI Threat Summary</h2>
+
+<div id="summaryBox">
+    No summary available.
+</div>
+
+<h2>🧠 AI Decision Engine</h2>
+
+<div id="aiDecisionBox">
+
+Waiting for AI decision...
+
+</div>
+
+<h2>🤖 AI Security Recommendations</h2>
+
+<div id="recommendationBox">
+
+No recommendations available.
+
+</div>
+
+<h2>🚨 AI Incident Response</h2>
+
+<div id="incidentResponse">
+
+No incident response generated.
+
+</div>
+
+<hr>
+
+<h2>🌐 Website Security Scanner</h2>
+
+<input
+type="text"
+id="websiteUrl"
+placeholder="https://example.com"
+style="width:350px;padding:10px;">
+
+<br><br>
+
+<button onclick="scanWebsite()">
+Analyze Website
+</button>
+
+
+<br><br>
+
+<button onclick="virusTotalScan()">
+🛡 Scan with VirusTotal
+</button>
+
+<br><br>
+
+<button onclick="downloadPDF()">
+📄 Download PDF Report
+</button>
+
+<button onclick="downloadCSV()">
+📊 Download CSV Report
+</button>
+
+<div id="websiteResult">
+
+No website analyzed.
+
+</div>
+
+
+
+<h2>📜 Scan History</h2>
+
+<div id="scanHistory">
+
+<p>No scan history available.</p>
+
+</div>
+
+
+<hr>
+
+<h2>🌍 IP Reputation Checker</h2>
+
+<div id="ipReputationResult">
+
+No IP checked.
+
+</div>
+
+
+<hr>
+
+<h2>🌍 Cyber Threat Intelligence</h2>
+
+<div id="intelFeed">
+
+<ul>
+
+<li>🔴 Microsoft releases emergency security patches.</li>
+
+<li>🟠 New Gmail phishing campaign detected.</li>
+
+<li>🟡 Critical Apache vulnerability reported.</li>
+
+<li>🔴 Ransomware attacks increasing worldwide.</li>
+
+<li>🟢 Remember to enable Multi-Factor Authentication.</li>
+
+</ul>
+
+</div>
+
+<hr>
+
+<h2>📝 Recent Activity</h2>
+
+<div id="activityLog">
+
+<p>No activity yet.</p>
+
+</div>
+
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+
+    window.location.href = "login.html";
+
+}
+</script>
+
+
+<h2>🔔 Notification Center</h2>
+
+<div id="notificationCenter">
+
+<p>No notifications available.</p>
+
+</div>
+
+<hr>
+
+<h2>🌍 Threat Intelligence Feed</h2>
+
+<h2>🔍 Advanced Dashboard Filters</h2>
+
+<div class="advancedFilters">
+
+<input
+type="date"
+id="filterDate">
+
+<select id="filterCategory">
+
+<option value="All">
+
+All Categories
+
+</option>
+
+<option value="Malware">
+
+Malware
+
+</option>
+
+<option value="Phishing">
+
+Phishing
+
+</option>
+
+<option value="Ransomware">
+
+Ransomware
+
+</option>
+
+<option value="Vulnerability">
+
+Vulnerability
+
+</option>
+
+<option value="Data Breach">
+
+Data Breach
+
+</option>
+
+</select>
+
+<select id="filterSeverity">
+
+<option value="All">
+
+All Severity
+
+</option>
+
+<option value="Critical">
+
+Critical
+
+</option>
+
+<option value="High">
+
+High
+
+</option>
+
+<option value="Medium">
+
+Medium
+
+</option>
+
+<option value="Low">
+
+Low
+
+</option>
+
+</select>
+
+<button onclick="advancedFilter()">
+
+Apply Filter
+
+</button>
+
+<button onclick="resetAdvancedFilter()">
+
+Reset
+
+</button>
+
+</div>
+
+<hr>
+
+<div id="criticalAlert">
+
+No Critical Alerts
+
+</div>
+
+<div class="news-stats">
+
+    <div class="news-stat-card">
+        <h3>Total</h3>
+        <h2 id="newsTotal">0</h2>
+    </div>
+
+    <div class="news-stat-card">
+        <h3>Critical</h3>
+        <h2 id="newsCritical">0</h2>
+    </div>
+
+    <div class="news-stat-card">
+        <h3>High</h3>
+        <h2 id="newsHigh">0</h2>
+    </div>
+
+    <div class="news-stat-card">
+        <h3>Medium</h3>
+        <h2 id="newsMedium">0</h2>
+    </div>
+
+    <div class="news-stat-card">
+        <h3>Low</h3>
+        <h2 id="newsLow">0</h2>
+    </div>
+
+</div>
+
+<div class="news-controls">
+
+    <input
+    type="text"
+    id="newsSearch"
+    placeholder="🔍 Search by Title or Source">
+
+    <button
+    onclick="filterNews()"
+    class="search-news-btn">
+
+    🔍 Search
+
+    </button>
+
+    <select
+    id="newsSeverity"
+    onchange="filterNews()">
+
+        <option value="All">All Severity</option>
+        <option value="Critical">Critical</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+
+    </select>
+
+    <select
+    id="newsSource"
+    onchange="filterNews()">
+
+        <option value="All">All Sources</option>
+        <option value="BleepingComputer">BleepingComputer</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Google">Google</option>
+        <option value="CISA">CISA</option>
+        <option value="SecurityWeek">SecurityWeek</option>
+
+    </select>
+
+    <select
+    id="newsSort"
+    onchange="filterNews()">
+
+        <option value="Newest">Newest First</option>
+        <option value="Oldest">Oldest First</option>
+        <option value="A-Z">Title A-Z</option>
+        <option value="Z-A">Title Z-A</option>
+
+    </select>
+
+</div>
+
+<button onclick="loadThreatNews()">
+Refresh News
+</button>
+
+<p id="newsTime">
+
+Last Updated : Never
+
+</p>
+
+<p id="refreshCountdown">
+
+Next Refresh : 60 sec
+
+</p>
+
+<div id="newsContainer">
+
+Loading latest cybersecurity news...
+
+</div>
+
+<h3>📌 Pinned News</h3>
+
+<div id="pinnedNews">
+
+No pinned news.
+
+</div>
+
+<hr>
+
+
+<h2>⭐ Bookmarked Threat Reports</h2>
+
+<div id="favoriteNews">
+
+No bookmarked reports.
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<footer
+style="text-align:center;
+margin-top:40px;
+padding:20px;">
+
+
+
+<h2>📄 Recent Reports</h2>
+
+<div id="recentReports">
+
+<p>No reports generated.</p>
+
+</div>
+
+
+
+</footer>
+
+
+</div>
+
+<!-- Toast Notification -->
+
+<div id="toastContainer">
+
+</div>
+
+<footer class="footer">
+
+      <button id="aboutButton" onclick="showAbout()">
+    ℹ About
+</button>
+
+ <br><br>
+
+<h3>🛡 AI Cyber Threat Detection Platform</h3>
+
+<p>Version 1.0</p>
+
+<p>Developed By : <b>DHANYAJ S</b></p>
+
+<p>Bachelor of Computer Applications (BCA)</p>
+
+<p>ITM College of Arts and Science</p>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+<footer class="footer">
+
+© 2026 AI Cyber Threat Detection Platform
+
+<br>
+
+Developed by DHANYAJ S
+
+</footer>
+
+</body>
+
+</html>

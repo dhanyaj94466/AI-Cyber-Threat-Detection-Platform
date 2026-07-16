@@ -37,45 +37,6 @@ It enables security analysts to analyze log files, detect cyber threats, scan we
 
 ---
 
-# 🖼 Screenshots
-
-## Dashboard
-
-<img width="1365" height="767" alt="dashboard png" src="https://github.com/user-attachments/assets/627d9be9-4239-4472-a7b7-db5819fcd383" />
-
-
----
-
-## Executive Security Dashboard
-
-> *(Upload screenshot here)*
-
----
-
-## AI Decision Engine
-
-> *(Upload screenshot here)*
-
----
-
-## Website Scanner
-
-> *(Upload screenshot here)*
-
----
-
-## Threat Intelligence
-
-> *(Upload screenshot here)*
-
----
-
-## PDF Report
-
-> *(Upload screenshot here)*
-
----
-
 # 🛠 Technologies Used
 
 ## Frontend

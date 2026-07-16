@@ -41,37 +41,37 @@ It enables security analysts to analyze log files, detect cyber threats, scan we
 
 ## Dashboard
 
-> *(Upload dashboard screenshot here)*
+![Dashboard](Screenshots/dashboard.png)
 
 ---
 
 ## Executive Security Dashboard
 
-> *(Upload screenshot here)*
+![Executive Dashboard](Screenshots/executive-dashboard.png)
 
 ---
 
 ## AI Decision Engine
 
-> *(Upload screenshot here)*
+![AI Decision Engine](Screenshots/ai-decision.png)
 
 ---
 
 ## Website Scanner
 
-> *(Upload screenshot here)*
+![Website Scanner](Screenshots/website-scanner.png)
 
 ---
 
 ## Threat Intelligence
 
-> *(Upload screenshot here)*
+![Threat Intelligence](Screenshots/threat-intelligence.png)
 
 ---
 
 ## PDF Report
 
-> *(Upload screenshot here)*
+![PDF Report](Screenshots/pdf-report.png)
 
 ---
 
